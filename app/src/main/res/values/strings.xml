@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DAM-Testing-UI</string>
+    <string name="dam_testing_ui">DAM-TESTING-UI</string>
+    <string name="hint_email">xxxx@gamil.com</string>
+    <string name="hint_password">password</string>
+    <string name="login">login</string>
+</resources>
