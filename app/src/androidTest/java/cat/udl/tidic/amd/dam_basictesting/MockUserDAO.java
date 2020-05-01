@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.io.IOException;
 
-import cat.udl.tidic.amd.dam_testing_ui.Users.AccountDAO;
+import cat.udl.tidic.amd.dam_basictesting.Users.AccountDAO;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import retrofit2.Call;

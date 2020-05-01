@@ -16,7 +16,7 @@ public class LoginUtils {
      * @return
      */
 
-    public boolean isValidEmailAddress(String email){
+    public static boolean isValidEmailAddress(String email){
         String regex = "^[\\w-_.+]*[\\w-_.]@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
@@ -31,7 +31,7 @@ public class LoginUtils {
      * @return
      */
 
-    public boolean isValidPassword(final String password) {
+    public static boolean isValidPassword(final String password) {
         Pattern pattern;
         Matcher matcher;
         final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{8,}$";
@@ -39,16 +39,26 @@ public class LoginUtils {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
+    public static boolean isValidGmailAddress(String email){
+        final String MAIL_PATTERN =
+                "^[\\w-_.+]*[\\w-_.]@([gmail]+\\.)+[\\w]+[\\w]$";
+        return email.matches(MAIL_PATTERN);
 
+    }
     //TODO: isValidGmailAddress(String email)
     //TODO: Make this methods static
     //TODO: getUserName as the part before @, make the test.
 
-    public String encodeLogin(String username, String password){
+    public static String encodeLogin(String username, String password){
         String header = username + ":" + password;
         byte[] data = header.getBytes(StandardCharsets.UTF_8);
         header = Base64.encodeToString(data, Base64.DEFAULT);
         header = ("Authentication " + header).trim();
         return header;
+    }
+    public static boolean getUserName(String username){
+        final String Username_PATTERN="^[\\w-_.+]*[\\w-_.]";
+        username = username.replace("/@.*/", "");
+        return username.matches(Username_PATTERN);
     }
 }
